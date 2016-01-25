@@ -7,6 +7,9 @@ import android.os.Looper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.netease.commonlibrary.CallBack.INetworkResultCallback;
+import com.netease.commonlibrary.Constant.LibraryConstant;
+import com.netease.commonlibrary.Utils.Log.ExceptionUtil;
+import com.netease.commonlibrary.Utils.Log.L;
 
 import java.lang.reflect.Modifier;
 
@@ -38,13 +41,16 @@ public class BaseNetUtilsManager {
     }
 
 
-    public void sendFailResultCallback(final int requsetCode, final Exception e, final INetworkResultCallback callback) {
+    public void sendFailResultCallback(final int requestCode, final Exception e, final INetworkResultCallback callback) {
         if (callback == null) return;
 
         mDelivery.post(new Runnable() {
             @Override
             public void run() {
-                callback.onError(requsetCode,e);
+                callback.onError(requestCode,e);
+                if (LibraryConstant.L_DEBUG){
+                    L.i("response" + requestCode, ExceptionUtil.getStackMsg(e));
+                }
             }
         });
     }
@@ -54,16 +60,20 @@ public class BaseNetUtilsManager {
     }
 
 
-    public void sendSuccessResultCallback(final int requsetCode,final Object object, final INetworkResultCallback callback) {
+    public void sendSuccessResultCallback(final int requestCode,final Object object, final INetworkResultCallback callback) {
         if (callback == null) return;
 
         mDelivery.post(new Runnable() {
             @Override
             public void run() {
-                callback.onResponse(requsetCode,object);
+                callback.onResponse(requestCode,object);
+                if (LibraryConstant.L_DEBUG){
+                    L.i("response"+requestCode,object.toString());
+                }
             }
         });
     }
+
 
 
 }

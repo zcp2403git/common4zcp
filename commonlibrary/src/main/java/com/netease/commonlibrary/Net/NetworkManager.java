@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class NetworkManager {
 
-    private NetEngine engine;
+    private NetConfig engine;
     private static volatile NetworkManager instance;
 
     public NetworkManager() {
@@ -40,7 +40,7 @@ public class NetworkManager {
         return instance;
     }
 
-    public synchronized void init(NetEngine engine) {
+    public synchronized void init(NetConfig engine) {
         if (engine == null) {
             throw new IllegalArgumentException("engine can not be initialized with null");
         } else {
@@ -132,9 +132,10 @@ public class NetworkManager {
      * @param url         请求地址
      * @param postParams  POST 请求的键值对
      * @param uploadList      上传文件的信息
+     * @param isAsync    是否异步
      * @param callback  结果回调
      */
-    public void uploadFiles(final int requestCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams, List<UploadFileInfo> uploadList, final INetworkResultCallback callback) {
+    public void uploadFiles(final int requestCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams,List<UploadFileInfo> uploadList, final INetworkResultCallback callback) {
         if (!isInited())
             return ;
          this.engine.managerStack.uploadFiles( requestCode,headers, url, postParams,uploadList,callback);

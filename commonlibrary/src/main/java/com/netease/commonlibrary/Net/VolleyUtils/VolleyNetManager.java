@@ -13,12 +13,14 @@ import com.netease.commonlibrary.CallBack.NetworkResultCallback;
 import com.netease.commonlibrary.Constant.LibraryConstant;
 import com.netease.commonlibrary.Exception.CommonLogException;
 import com.netease.commonlibrary.Net.BaseNetUtilsManager;
+import com.netease.commonlibrary.Net.NetConfig;
 import com.netease.commonlibrary.Net.NetworkManagerStack;
 import com.netease.commonlibrary.Net.VolleyUtils.okhttp.ProgressRequestBody;
 import com.netease.commonlibrary.Net.VolleyUtils.okhttp.UploadFileInfo;
 import com.netease.commonlibrary.Net.VolleyUtils.volley.OkRequest;
 import com.netease.commonlibrary.Net.VolleyUtils.volley.toolbox.OkVolley;
 import com.netease.commonlibrary.Utils.Log.L;
+import com.netease.commonlibrary.Utils.Network.NetworkStateUtil;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Headers;
@@ -30,6 +32,7 @@ import com.squareup.okhttp.RequestBody;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.ConnectException;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
 import java.net.FileNameMap;
@@ -39,6 +42,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import im.amomo.volley.BuildConfig;
 
@@ -51,6 +55,7 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
     private static final int DefaultCode=100;
     private static VolleyNetManager instance = null;
     private HashMap<INetworkResultCallback, HashMap<Integer, OkRequest>> taskMap = new HashMap<INetworkResultCallback, HashMap<Integer, OkRequest>>();
+    private Context context;
     OkHttpClient mOkHttpClient;
     public static synchronized VolleyNetManager getInstance(Context context) {
         if (instance == null) {
@@ -61,6 +66,7 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
 
     private VolleyNetManager(Context context) {
         super();
+        this.context=context;
         OkVolley.getInstance().init(context)
                 .setUserAgent(OkVolley.generateUserAgent(context))
                 .trustAllCerts();
@@ -73,7 +79,7 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
         mOkHttpClient = new OkHttpClient();
         //cookie enabled
         mOkHttpClient.setCookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER));
-
+        mOkHttpClient.setConnectTimeout(NetConfig.timeOut, TimeUnit.MILLISECONDS);
     }
     /**
      * Post方式请求数据
@@ -110,15 +116,15 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
             callback = NetworkResultCallback.DEFAULT_RESULT_CALLBACK;
         final INetworkResultCallback resCallBack =callback;
 
-        OkRequest request = new BaseResponseRequest(method, url, new Response.Listener<NetworkResponse>() {
+        if (NetworkStateUtil.checkNetworkType(context)==NetworkStateUtil.TYPE_NET_WORK_DISABLED)
+            sendFailResultCallback(requestCode,new ConnectException(), resCallBack);
+
+        OkRequest request = new DefaultResponseRequest(method, url, new Response.Listener<NetworkResponse>() {
             @Override
             public void onResponse(NetworkResponse response) {
                 try
                 {
                     final String string =  new String(response.data, HttpHeaderParser.parseCharset(response.headers));
-                    if (LibraryConstant.L_DEBUG){
-                        L.i(requestCode+" Request:",string);
-                    }
                     if (resCallBack.mType == String.class)
                     {
                         sendSuccessResultCallback(requestCode,string, resCallBack);
@@ -151,7 +157,7 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
         request.setTag(requestCode);
         OkVolley.getInstance().getRequestQueue().add(request);
         if (LibraryConstant.L_DEBUG){
-                L.i(requestCode+" RequestBody:",new String(request.getUrl()));
+                L.i(" request"+requestCode,request.getUrl());
         }
         HashMap<Integer, OkRequest> map = taskMap.get(callback);
         if (map == null) {
@@ -205,16 +211,20 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
      * @param callback  结果回调
      */
     public void uploadFiles(final int requestCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams, List<UploadFileInfo> uploadList, final INetworkResultCallback callback){
+        if (NetworkStateUtil.checkNetworkType(context)==NetworkStateUtil.TYPE_NET_WORK_DISABLED)
+            sendFailResultCallback(requestCode,new ConnectException(), callback);
 
         com.squareup.okhttp.Callback okCallback =new Callback() {
             @Override
             public void onFailure(com.squareup.okhttp.Request request, IOException e) {
                 sendFailResultCallback(requestCode, e, callback);
+
             }
 
             @Override
             public void onResponse(com.squareup.okhttp.Response response) throws IOException {
                 sendSuccessResultCallback(requestCode, response.body().string(), callback);
+
             }
         };
         if(headers == null){
@@ -227,7 +237,6 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
             sendFailResultCallback(requestCode, new CommonLogException("no file find"), callback);
             return;
         }
-//        fileBody = RequestBody.create(MediaType.parse("audio/x-mpeg"), file);//音频
 
         MultipartBuilder builder=new MultipartBuilder();
         builder .type(MultipartBuilder.FORM);
@@ -241,13 +250,13 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
                 }else {
                     builder.addFormDataPart(uploadList.get(i).param, file.getName(), fileBody);
                 }
+            }else{
+                //文件路径错误
             }
         }
 
 //        RequestBody formBody = new FormEncodingBuilder()
 //                .add("platform", "android")
-//                .add("name", "bug")
-//                .add("subject", "XXXXXXXXXXXXXXX")
 //                .build();
 
         com.squareup.okhttp.Request request = new com.squareup.okhttp.Request.Builder()
@@ -257,9 +266,25 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
                 .headers(Headers.of(headers))
                 .build();
 
-        Call call = mOkHttpClient.newCall(request);
-        call.enqueue(okCallback);
+        if (LibraryConstant.L_DEBUG){
+            L.i("request"+requestCode,bindParams(url, postParams));
+        }
 
+        Call call = mOkHttpClient.newCall(request);
+        boolean isAsync=true;
+        if (isAsync)
+            call.enqueue(okCallback);
+        else {
+            try {
+                com.squareup.okhttp.Response res=call.execute();
+                sendSuccessResultCallback(requestCode, res.body().string(), callback);
+                if (LibraryConstant.L_DEBUG){
+                    L.i("response"+requestCode,res.body());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

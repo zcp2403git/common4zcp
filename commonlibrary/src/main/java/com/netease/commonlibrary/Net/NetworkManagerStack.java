@@ -67,14 +67,26 @@ public interface NetworkManagerStack {
     public void cancelAll(INetworkResultCallback callback);
 
     /**
-     * 上传多个文件
+     * 上传多个文件，没走volley的方式
+     * @param requestCode 请求code
+     * @param headers      http请求头
+     * @param url         请求地址
+     * @param postParams  POST 请求的键值对
+     * @param uploadList      上传文件的信息
+     * @param callback  结果回调
      */
-    public void uploadFiles(int requsetCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams, List<UploadFileInfo> uploadList, INetworkResultCallback callback);
+    public void uploadFiles(int requestCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams,List<UploadFileInfo> uploadList, INetworkResultCallback callback);
 
     /**
-     * 上传文件
+     * 上传单个文件，没走volley的方式
+     * @param requestCode 请求code
+     * @param headers      http请求头
+     * @param url         请求地址
+     * @param postParams  POST 请求的键值对
+     * @param uploadList      上传文件的信息
+     * @param callback  结果回调
      */
-    public void uploadFile(int requsetCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams, UploadFileInfo uploadList, INetworkResultCallback callback);
+    public void uploadFile(int requestCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams, UploadFileInfo uploadList, INetworkResultCallback callback);
 
     /**
      * 取消指定requestCode的上传任务
