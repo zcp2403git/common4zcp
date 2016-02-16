@@ -66,12 +66,12 @@ public class L {
         logToFile(tag, m);
     }
 
-//    public static void d(Object tag, Object... m) {
-//        if (LibraryConstant.L_DEBUG && LOG_LEVEL <= LEVEL_DEBUG) {
-//            Log.d(getTagName(tag), join(m));
-//        }
-//        logToFile(tag, m);
-//    }
+    public static void d(Object tag, Object... m) {
+        if (LibraryConstant.L_DEBUG && LOG_LEVEL <= LEVEL_DEBUG) {
+            Log.d(getTagName(tag), join(m));
+        }
+        logToFile(tag, m);
+    }
 //
 //    public static void i(Object tag, Object... m) {
 //        if (LibraryConstant.L_DEBUG && LOG_LEVEL <= LEVEL_INFO) {

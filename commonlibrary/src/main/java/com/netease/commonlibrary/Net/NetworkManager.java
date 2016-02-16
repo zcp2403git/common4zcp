@@ -28,6 +28,18 @@ public class NetworkManager {
         return this.engine.gsonParse;
     }
 
+    /**
+     * 转换为json对象
+     * * @param data      待转换数据
+     * @param clazz     转换类型
+     */
+    public <T> T string2Gson(String data,Class<T>  clazz) {
+        if (this.engine == null) {
+            throw new IllegalArgumentException("engine can not be initialized with null");
+        }
+        return this.engine.gsonParse.fromJson(data, clazz);
+    }
+
     public static NetworkManager getInstance() {
         if (instance == null) {
             Class var0 = NetworkManager.class;

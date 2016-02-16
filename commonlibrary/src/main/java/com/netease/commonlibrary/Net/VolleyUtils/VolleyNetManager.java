@@ -239,7 +239,7 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
         }
 
         MultipartBuilder builder=new MultipartBuilder();
-        builder .type(MultipartBuilder.FORM);
+        builder.type(MultipartBuilder.FORM);
         for (int i=0;i<uploadList.size();i++) {
             File file=uploadList.get(i).file;
             if (file.exists()) {
@@ -278,9 +278,6 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
             try {
                 com.squareup.okhttp.Response res=call.execute();
                 sendSuccessResultCallback(requestCode, res.body().string(), callback);
-                if (LibraryConstant.L_DEBUG){
-                    L.i("response"+requestCode,res.body());
-                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -299,7 +296,7 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
     public void uploadFile(final int requestCode,HashMap<String, String> headers,String url,HashMap<String, String> postParams,UploadFileInfo upload, final INetworkResultCallback callback){
         List<UploadFileInfo> list=new ArrayList<UploadFileInfo>();
         list.add(upload);
-         uploadFiles(requestCode, headers, url, postParams, list, callback);
+        uploadFiles(requestCode, headers, url, postParams, list, callback);
     }
 
 

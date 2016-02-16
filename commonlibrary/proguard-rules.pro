@@ -82,6 +82,8 @@
 -dontwarn im.amomo.volley.**
 -dontwarn com.android.volley.**
 
+
+-keep @com.netease.commonlibrary.Annotations.DoNotStrip class *-keepclassmembers class * {    @com.netease.commonlibrary.Annotations.DoNotStrip *;}
 #-keep class de.greenrobot.event.**{*;}
 #-keepclassmembers class ** {
 #   public void onEvent*(**);

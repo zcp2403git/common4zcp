@@ -8,10 +8,14 @@
  */
 
 package com.netease.commonlibrary.Utils.Common;
+/**
+ * Created by zhouchangping on 2016/1/25.
+ */
 
 public class ByteConstants {
   public static final int KB = 1024;
   public static final int MB = 1024 * KB;
+  public static final int GB = 1024 * MB;
 
   private ByteConstants() {
   }

@@ -85,15 +85,15 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
 
     }
 
-    private void setRefreshListener(SwipeRefreshLayout.OnRefreshListener context){
+    public void setRefreshListener(SwipeRefreshLayout.OnRefreshListener context){
         mRecycler.setRefreshListener(context);
     }
 
-    private void setLoadMoreListener(OnMoreListener context){
+    public void setLoadMoreListener(OnMoreListener context){
         mRecycler.setupMoreListener(context, leftItem);
     }
 
-    private void setLoadMoreListener(OnMoreListener context,int leftItem){
+    public void setLoadMoreListener(OnMoreListener context,int leftItem){
         mRecycler.setupMoreListener(context, leftItem);
     }
 
@@ -135,12 +135,12 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
         }
     }
 
-    private void setList(List<T> dataList){
+    public void setList(List<T> dataList){
         mAdapter.setList(dataList);
     }
 
-    public void setPageNum(int num){
-        leftItem =num;
+    public void setLoadLeftItem(int leftnum){
+        leftItem = leftnum;
     }
 
     public BaseRecyclerAdapter<T> getAdapter() {
@@ -149,6 +149,10 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
 
     public void setAdapterData(List dataList) {
         mAdapter.setList(dataList);
+    }
+
+    public void addAdapterData(List dataList) {
+        mAdapter.addAll(dataList);
     }
 
     public MyRecyclerView getRecycler() {

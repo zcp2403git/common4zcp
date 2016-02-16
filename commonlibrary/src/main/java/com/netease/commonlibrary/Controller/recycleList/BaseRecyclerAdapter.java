@@ -67,8 +67,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
     }
 
     public void addAll(List<T> list) {
-        int startIndex = list.size();
-        dataList.addAll(startIndex, list);
+        int startIndex = dataList.size();
+        dataList.addAll(list);
         notifyItemRangeInserted(startIndex, list.size());
     }
 

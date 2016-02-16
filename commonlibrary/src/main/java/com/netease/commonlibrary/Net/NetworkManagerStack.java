@@ -28,6 +28,8 @@ import java.util.Map;
  * @author zhouchangping
  */
 public interface NetworkManagerStack {
+
+
     /**
      * 获取通用bean数据结果,可以在UI线程中执行
      * * @param headers      http请求头
