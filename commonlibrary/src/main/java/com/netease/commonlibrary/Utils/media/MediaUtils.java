@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.media;
+package com.netease.commonlibrary.utils.media;
 
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;

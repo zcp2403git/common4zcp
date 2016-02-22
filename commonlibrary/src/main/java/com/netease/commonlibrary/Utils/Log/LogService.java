@@ -4,7 +4,7 @@
  * Copyright 2015 netease, Inc. All rights reserved.
  * Netease PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package com.netease.commonlibrary.Utils.Log;
+package com.netease.commonlibrary.utils.log;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -19,7 +19,7 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.util.Log;
 
-import com.netease.commonlibrary.Constant.LibraryConstant;
+import com.netease.commonlibrary.constant.LibraryConstant;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,6 +1,6 @@
-package com.netease.commonlibrary.Utils.File;
+package com.netease.commonlibrary.utils.file;
 
-import com.netease.commonlibrary.Constant.LibraryConstant;
+import com.netease.commonlibrary.constant.LibraryConstant;
 
 import java.io.File;
 import java.io.FileFilter;

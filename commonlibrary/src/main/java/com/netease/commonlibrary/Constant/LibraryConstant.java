@@ -1,5 +1,5 @@
 
-package com.netease.commonlibrary.Constant;
+package com.netease.commonlibrary.constant;
 
 import android.os.Environment;
 

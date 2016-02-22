@@ -1,10 +1,7 @@
-package com.netease.commonlibrary.Utils.Log;
+package com.netease.commonlibrary.utils.log;
 
 
-import android.database.Cursor;
-import android.provider.MediaStore;
-
-import com.netease.commonlibrary.Constant.LibraryConstant;
+import com.netease.commonlibrary.constant.LibraryConstant;
 
 import java.io.BufferedWriter;
 import java.io.File;

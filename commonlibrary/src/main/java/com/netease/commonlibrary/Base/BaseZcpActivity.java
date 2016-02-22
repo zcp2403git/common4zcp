@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Base;
+package com.netease.commonlibrary.base;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;

@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Net.VolleyUtils;
+package com.netease.commonlibrary.net.VolleyUtils;
 
 import android.content.Context;
 
@@ -8,19 +8,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
-import com.netease.commonlibrary.CallBack.INetworkResultCallback;
-import com.netease.commonlibrary.CallBack.NetworkResultCallback;
-import com.netease.commonlibrary.Constant.LibraryConstant;
-import com.netease.commonlibrary.Exception.CommonLogException;
-import com.netease.commonlibrary.Net.BaseNetUtilsManager;
-import com.netease.commonlibrary.Net.NetConfig;
-import com.netease.commonlibrary.Net.NetworkManagerStack;
-import com.netease.commonlibrary.Net.VolleyUtils.okhttp.ProgressRequestBody;
-import com.netease.commonlibrary.Net.VolleyUtils.okhttp.UploadFileInfo;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.OkRequest;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.toolbox.OkVolley;
-import com.netease.commonlibrary.Utils.Log.L;
-import com.netease.commonlibrary.Utils.Network.NetworkStateUtil;
+import com.netease.commonlibrary.callback.INetworkResultCallback;
+import com.netease.commonlibrary.callback.NetworkResultCallback;
+import com.netease.commonlibrary.constant.LibraryConstant;
+import com.netease.commonlibrary.exception.CommonLogException;
+import com.netease.commonlibrary.net.BaseNetUtilsManager;
+import com.netease.commonlibrary.net.NetConfig;
+import com.netease.commonlibrary.net.NetworkManagerStack;
+import com.netease.commonlibrary.net.VolleyUtils.okhttp.ProgressRequestBody;
+import com.netease.commonlibrary.net.VolleyUtils.okhttp.UploadFileInfo;
+import com.netease.commonlibrary.net.VolleyUtils.volley.OkRequest;
+import com.netease.commonlibrary.net.VolleyUtils.volley.toolbox.OkVolley;
+import com.netease.commonlibrary.utils.log.L;
+import com.netease.commonlibrary.utils.network.NetworkStateUtil;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Headers;

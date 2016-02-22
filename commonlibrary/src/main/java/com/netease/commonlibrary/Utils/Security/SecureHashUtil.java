@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-package com.netease.commonlibrary.Utils.Security;
+package com.netease.commonlibrary.utils.security;
 
 import android.util.Base64;
 

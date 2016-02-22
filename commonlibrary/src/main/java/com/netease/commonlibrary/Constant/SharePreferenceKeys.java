@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Constant;
+package com.netease.commonlibrary.constant;
 
  /**
  * SharePreference key常量的定义

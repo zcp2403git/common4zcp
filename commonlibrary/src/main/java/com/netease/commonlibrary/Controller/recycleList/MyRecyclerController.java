@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Controller.recycleList;
+package com.netease.commonlibrary.controller.recycleList;
 
 import android.content.Context;
 import android.os.Handler;
@@ -10,7 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import com.malinskiy.superrecyclerview.OnMoreListener;
 import com.malinskiy.superrecyclerview.swipe.SparseItemRemoveAnimator;
 import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
-import com.netease.commonlibrary.View.RecyclyViewSupport.DividerItemDecoration;
+import com.netease.commonlibrary.view.recyclyviewsupport.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchListener.DismissCallbacks {
 
-    private MyRecyclerView mRecycler;
+    private com.netease.commonlibrary.controller.recycleList.MyRecyclerView mRecycler;
     private BaseRecyclerAdapter<T>          mAdapter;
     private SparseItemRemoveAnimator mSparseAnimator;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -29,7 +29,7 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
     private int leftItem =2;
     protected boolean dismissEnabled=false;
 
-    public MyRecyclerController(Context context, BaseRecyclerAdapter mAdapter, MyRecyclerView mRecycler, RecyclerView.LayoutManager mLayoutManager){
+    public MyRecyclerController(Context context, BaseRecyclerAdapter mAdapter, com.netease.commonlibrary.controller.recycleList.MyRecyclerView mRecycler, RecyclerView.LayoutManager mLayoutManager){
         this.context=context;
         this.mAdapter=mAdapter;
         this.mRecycler=mRecycler;
@@ -37,7 +37,7 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
         init();
     }
 
-    public MyRecyclerController(Context context, BaseRecyclerAdapter mAdapter, MyRecyclerView mRecycler, List<T> dataList){
+    public MyRecyclerController(Context context, BaseRecyclerAdapter mAdapter, com.netease.commonlibrary.controller.recycleList.MyRecyclerView mRecycler, List<T> dataList){
         this.context=context;
         this.mAdapter=mAdapter;
         this.mRecycler=mRecycler;
@@ -46,7 +46,7 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
         init();
     }
 
-    public MyRecyclerController(Context context, BaseRecyclerAdapter mAdapter, MyRecyclerView mRecycler){
+    public MyRecyclerController(Context context, BaseRecyclerAdapter mAdapter, com.netease.commonlibrary.controller.recycleList.MyRecyclerView mRecycler){
         this.mLayoutManager = new LinearLayoutManager(context);
         this.context=context;
         this.mAdapter = mAdapter;
@@ -76,7 +76,7 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
         mRecycler.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
     }
 
-    public MyRecyclerController(Context context, MyRecyclerView mRecycler){
+    public MyRecyclerController(Context context, com.netease.commonlibrary.controller.recycleList.MyRecyclerView mRecycler){
         this.mLayoutManager = new LinearLayoutManager(context);
         mAdapter=new DefaultRecyclerAdapter<T>();
         this.context=context;
@@ -155,7 +155,7 @@ public class MyRecyclerController<T>  implements SwipeDismissRecyclerViewTouchLi
         mAdapter.addAll(dataList);
     }
 
-    public MyRecyclerView getRecycler() {
+    public com.netease.commonlibrary.controller.recycleList.MyRecyclerView getRecycler() {
         return mRecycler;
     }
 

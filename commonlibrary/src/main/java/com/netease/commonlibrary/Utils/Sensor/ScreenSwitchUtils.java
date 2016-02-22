@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.Sensor;
+package com.netease.commonlibrary.utils.sensor;
 
 import android.app.Activity;
 import android.content.Context;
@@ -147,23 +147,24 @@ public class ScreenSwitchUtils {
                     orientation += 360;
                 }
             }
+//            L.i("orientation:", orientation);
             //处理
             if (orientation > 45 && orientation < 135) {
-
+                callback.orientationChangeEvent(1);
             } else if (orientation > 135 && orientation < 225) {
-
+                callback.orientationChangeEvent(2);
             } else if (orientation > 225 && orientation < 315) {
-                if (isPortrait) {
+//                if (isPortrait) {
 //切换成横屏
-                    isPortrait = false;
-                    callback.orientationChangeEvent(false);
-                }
+//                    isPortrait = false;
+                    callback.orientationChangeEvent(3);
+//                }
             } else if ((orientation > 315 && orientation < 360) || (orientation > 0 && orientation < 45)) {
-                if (!isPortrait) {
-// 切换成竖屏
-                    isPortrait = true;
-                    callback.orientationChangeEvent(true);
-                }
+//                if (!isPortrait) {
+//// 切换成竖屏
+//                    isPortrait = true;
+                    callback.orientationChangeEvent(0);
+//                }
             }
         }
     }
@@ -203,6 +204,7 @@ public class ScreenSwitchUtils {
                     orientation += 360;
                 }
             }
+
             if (orientation > 225 && orientation < 315) {// 检测到当前实际是横屏
                 if (!isPortrait) {
                     sm.registerListener(listener, sensor,SensorManager.SENSOR_DELAY_UI);
@@ -218,7 +220,7 @@ public class ScreenSwitchUtils {
     }
 
     public interface OrientationSensor{
-         void orientationChangeEvent(boolean isPortrait);
+         void orientationChangeEvent(int orientationState);
     }
 
 

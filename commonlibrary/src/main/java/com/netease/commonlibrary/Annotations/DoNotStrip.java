@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-package com.netease.commonlibrary.Annotations;
+package com.netease.commonlibrary.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

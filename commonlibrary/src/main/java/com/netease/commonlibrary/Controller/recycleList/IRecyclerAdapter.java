@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Controller.recycleList;
+package com.netease.commonlibrary.controller.recycleList;
 
 import java.util.List;
 

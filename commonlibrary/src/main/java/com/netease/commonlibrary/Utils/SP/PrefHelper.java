@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.SP;
+package com.netease.commonlibrary.utils.SP;
 
 
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
-import com.netease.commonlibrary.Constant.LibraryConstant;
+import com.netease.commonlibrary.constant.LibraryConstant;
 
 
 /**

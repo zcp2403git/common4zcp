@@ -1,7 +1,7 @@
-package com.netease.commonlibrary.CallBack;
+package com.netease.commonlibrary.callback;
 
 import com.google.gson.internal.$Gson$Types;
-import com.netease.commonlibrary.Utils.Log.L;
+import com.netease.commonlibrary.utils.log.L;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

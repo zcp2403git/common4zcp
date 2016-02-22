@@ -1,6 +1,9 @@
-package com.netease.commonlibrary.Utils.Common;
+package com.netease.commonlibrary.utils.common;
 
 import android.content.Context;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by zhouchangping on 2016/1/14.
@@ -15,10 +18,28 @@ public class CommonTextUtils {
         char[] cTemp = text.toCharArray();
         for (int i = 0; i < text.length(); i++) {
             if(!Character.isLetterOrDigit(cTemp[i])){
-                isEmoji = true;
+                if (!isCommonSymbol(cTemp[i]))
+                    isEmoji = true;
             }
         }
         return isEmoji;
+    }
+
+
+    // 判断常见符号
+    private static boolean isCommonSymbol(String text) {
+        final String regEx="[`~!@#$%^&*()+=|{}:;\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        final  Pattern c = Pattern.compile(regEx);
+        final Matcher mc=c.matcher(text);
+        return mc.matches();
+    }
+
+    // 判断常见符号
+    private static boolean isCommonSymbol(char text) {
+        final String regEx="[`~!@#$%^&*()+=|{}:;\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        final  Pattern c = Pattern.compile(regEx);
+        final Matcher mc=c.matcher(String.valueOf(text));
+        return mc.matches();
     }
 
     // 根据Unicode编码完美的判断中文汉字和符号

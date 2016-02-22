@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.netease.commonlibrary.View.RecyclyViewSupport;
+package com.netease.commonlibrary.view.recyclyviewsupport;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.OnScrollListener;
@@ -15,14 +15,14 @@ import java.util.List;
 public class RecyclerViewScrollManager {
     private List<OnRecyclerViewScrollListener> scrollListeners;
     private OnRecyclerViewScrollLocationListener onRecyclerViewScrollLocationListener;
-    private RecyclerViewScrollManager.OnScrollManagerLocation onScrollManagerLocation;
+    private OnScrollManagerLocation onScrollManagerLocation;
     private boolean isScrolling;
     OnScrollListener onScrollListener;
 
     public RecyclerViewScrollManager() {
     }
 
-    public void setOnScrollManagerLocation(RecyclerViewScrollManager.OnScrollManagerLocation onScrollManagerLocation) {
+    public void setOnScrollManagerLocation(OnScrollManagerLocation onScrollManagerLocation) {
         this.onScrollManagerLocation = onScrollManagerLocation;
     }
 

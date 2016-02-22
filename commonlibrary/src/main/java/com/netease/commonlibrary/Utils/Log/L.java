@@ -1,10 +1,10 @@
-package com.netease.commonlibrary.Utils.Log;
+package com.netease.commonlibrary.utils.log;
 
 import android.util.Log;
 
-import com.netease.commonlibrary.Constant.LibraryConstant;
-import com.netease.commonlibrary.Utils.File.FileUtils;
-import com.netease.commonlibrary.Utils.File.MountedSDCard;
+import com.netease.commonlibrary.constant.LibraryConstant;
+import com.netease.commonlibrary.utils.file.FileUtils;
+import com.netease.commonlibrary.utils.file.MountedSDCard;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="1px"
     android:orientation="vertical" >
-    <com.netease.commonlibrary.View.LineView
+    <com.netease.commonlibrary.view.LineView
         android:layout_width="match_parent"
         android:layout_height="1px"/>
     

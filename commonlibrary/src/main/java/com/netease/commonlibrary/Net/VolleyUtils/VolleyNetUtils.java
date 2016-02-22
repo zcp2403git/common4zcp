@@ -1,10 +1,10 @@
-package com.netease.commonlibrary.Net.VolleyUtils;
+package com.netease.commonlibrary.net.VolleyUtils;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.RequestFuture;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.OkRequest;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.toolbox.OkVolley;
+import com.netease.commonlibrary.net.VolleyUtils.volley.OkRequest;
+import com.netease.commonlibrary.net.VolleyUtils.volley.toolbox.OkVolley;
 
 import org.json.JSONObject;
 

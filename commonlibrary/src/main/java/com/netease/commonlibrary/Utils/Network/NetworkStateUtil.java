@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.Network;
+package com.netease.commonlibrary.utils.network;
 
 import android.content.Context;
 import android.database.Cursor;

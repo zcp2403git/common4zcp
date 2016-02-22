@@ -1,8 +1,8 @@
-package com.netease.commonlibrary.Net;
+package com.netease.commonlibrary.net;
 
 import com.google.gson.Gson;
-import com.netease.commonlibrary.CallBack.INetworkResultCallback;
-import com.netease.commonlibrary.Net.VolleyUtils.okhttp.UploadFileInfo;
+import com.netease.commonlibrary.callback.INetworkResultCallback;
+import com.netease.commonlibrary.net.VolleyUtils.okhttp.UploadFileInfo;
 import com.nostra13.universalimageloader.utils.L;
 
 import java.util.HashMap;

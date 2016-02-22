@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Net;
+package com.netease.commonlibrary.net;
 
 import android.os.Build;
 import android.os.Handler;
@@ -6,10 +6,10 @@ import android.os.Looper;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.netease.commonlibrary.CallBack.INetworkResultCallback;
-import com.netease.commonlibrary.Constant.LibraryConstant;
-import com.netease.commonlibrary.Utils.Log.ExceptionUtil;
-import com.netease.commonlibrary.Utils.Log.L;
+import com.netease.commonlibrary.callback.INetworkResultCallback;
+import com.netease.commonlibrary.constant.LibraryConstant;
+import com.netease.commonlibrary.utils.log.ExceptionUtil;
+import com.netease.commonlibrary.utils.log.L;
 
 import java.lang.reflect.Modifier;
 

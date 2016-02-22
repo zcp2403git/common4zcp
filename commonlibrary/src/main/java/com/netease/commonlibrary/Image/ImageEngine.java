@@ -1,8 +1,8 @@
-package com.netease.commonlibrary.Image;
+package com.netease.commonlibrary.image;
 
 import android.content.Context;
 
-import com.netease.commonlibrary.Image.ImageLoader.ImageLoaderManager;
+import com.netease.commonlibrary.image.ImageLoader.ImageLoaderManager;
 
 /**
  * 图片请求配置类

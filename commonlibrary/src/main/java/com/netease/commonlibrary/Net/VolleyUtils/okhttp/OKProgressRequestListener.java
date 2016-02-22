@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Net.VolleyUtils.okhttp;
+package com.netease.commonlibrary.net.VolleyUtils.okhttp;
 /**
  * @author zhouchangping on 2016/1/15.
  */

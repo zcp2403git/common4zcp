@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.Common;
+package com.netease.commonlibrary.utils.common;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -17,7 +17,7 @@ import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 
-import com.netease.commonlibrary.Utils.Log.L;
+import com.netease.commonlibrary.utils.log.L;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

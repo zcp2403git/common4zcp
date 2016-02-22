@@ -1,5 +1,5 @@
 
-package com.netease.commonlibrary.Utils.File;
+package com.netease.commonlibrary.utils.file;
 
 import android.annotation.SuppressLint;
 import android.os.Build;

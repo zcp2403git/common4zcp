@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.View.Toast;
+package com.netease.commonlibrary.view.toast;
 
 import android.content.Context;
 import android.os.Handler;

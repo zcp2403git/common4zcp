@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.File;
+package com.netease.commonlibrary.utils.file;
 
 /***
  *  存储大小(单位)转换器.

@@ -1,6 +1,6 @@
-package com.netease.commonlibrary.CallBack;
+package com.netease.commonlibrary.callback;
 
-import com.netease.commonlibrary.Utils.Log.L;
+import com.netease.commonlibrary.utils.log.L;
 
 /**
  * 结果回调

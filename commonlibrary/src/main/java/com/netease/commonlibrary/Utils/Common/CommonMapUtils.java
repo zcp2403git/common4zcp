@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.Common;
+package com.netease.commonlibrary.utils.common;
 
 import android.support.annotation.Nullable;
 

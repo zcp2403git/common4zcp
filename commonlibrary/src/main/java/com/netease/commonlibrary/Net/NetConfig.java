@@ -1,11 +1,11 @@
-package com.netease.commonlibrary.Net;
+package com.netease.commonlibrary.net;
 
 import android.content.Context;
 import android.os.Build;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.netease.commonlibrary.Net.VolleyUtils.VolleyNetManager;
+import com.netease.commonlibrary.net.VolleyUtils.VolleyNetManager;
 
 import java.lang.reflect.Modifier;
 

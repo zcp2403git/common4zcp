@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Net.VolleyUtils.okhttp;
+package com.netease.commonlibrary.net.VolleyUtils.okhttp;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;

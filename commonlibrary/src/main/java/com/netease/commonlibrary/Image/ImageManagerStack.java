@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.netease.commonlibrary.Image;
+package com.netease.commonlibrary.image;
 
-import com.netease.commonlibrary.CallBack.ImageResultCallback;
+import com.netease.commonlibrary.callback.ImageResultCallback;
 import com.nostra13.universalimageloader.core.imageaware.ImageAware;
 
 /**

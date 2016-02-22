@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.View;
+package com.netease.commonlibrary.view;
 
 import android.content.Context;
 import android.graphics.Canvas;

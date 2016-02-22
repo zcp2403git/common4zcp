@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Net.VolleyUtils.volley.toolbox;
+package com.netease.commonlibrary.net.VolleyUtils.volley.toolbox;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -10,9 +10,9 @@ import com.android.volley.Network;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.Volley;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.OkNetwork;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.OkRequest;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.OkHttpStack;
+import com.netease.commonlibrary.net.VolleyUtils.volley.OkNetwork;
+import com.netease.commonlibrary.net.VolleyUtils.volley.OkRequest;
+import com.netease.commonlibrary.net.VolleyUtils.volley.OkHttpStack;
 import com.squareup.okhttp.Dispatcher;
 import com.squareup.okhttp.Interceptor;
 

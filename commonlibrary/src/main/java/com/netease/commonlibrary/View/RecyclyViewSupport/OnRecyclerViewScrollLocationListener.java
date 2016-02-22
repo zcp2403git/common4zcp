@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.netease.commonlibrary.View.RecyclyViewSupport;
+package com.netease.commonlibrary.view.recyclyviewsupport;
 
 import android.support.v7.widget.RecyclerView;
 

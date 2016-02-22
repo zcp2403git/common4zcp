@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import com.netease.commonlibrary.Utils.Log.L;
+import com.netease.commonlibrary.utils.log.L;
 
 import java.util.ArrayList;
 

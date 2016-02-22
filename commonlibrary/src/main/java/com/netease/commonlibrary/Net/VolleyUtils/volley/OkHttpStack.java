@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Net.VolleyUtils.volley;
+package com.netease.commonlibrary.net.VolleyUtils.volley;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.netease.commonlibrary.Net;
+package com.netease.commonlibrary.net;
 
-import com.netease.commonlibrary.CallBack.INetworkResultCallback;
-import com.netease.commonlibrary.Net.VolleyUtils.okhttp.UploadFileInfo;
+import com.netease.commonlibrary.callback.INetworkResultCallback;
+import com.netease.commonlibrary.net.VolleyUtils.okhttp.UploadFileInfo;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.CallBack;
+package com.netease.commonlibrary.callback;
 
 import java.lang.reflect.Type;
 

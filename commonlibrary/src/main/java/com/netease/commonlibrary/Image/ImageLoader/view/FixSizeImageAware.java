@@ -4,7 +4,7 @@
  * Copyright 2015 netease, Inc. All rights reserved.
  * Netease PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package com.netease.commonlibrary.Image.ImageLoader.view;
+package com.netease.commonlibrary.image.ImageLoader.view;
 
 import android.widget.ImageView;
 

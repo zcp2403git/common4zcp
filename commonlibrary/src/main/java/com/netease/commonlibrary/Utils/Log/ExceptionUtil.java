@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Utils.Log;
+package com.netease.commonlibrary.utils.log;
 
 /**
  * Created by zhouchangping on 2016/1/25.

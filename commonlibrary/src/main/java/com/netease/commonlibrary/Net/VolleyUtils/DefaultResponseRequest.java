@@ -1,4 +1,4 @@
-package com.netease.commonlibrary.Net.VolleyUtils;
+package com.netease.commonlibrary.net.VolleyUtils;
 
 import android.os.SystemClock;
 
@@ -8,8 +8,8 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
-import com.netease.commonlibrary.Net.NetConfig;
-import com.netease.commonlibrary.Net.VolleyUtils.volley.OkRequest;
+import com.netease.commonlibrary.net.NetConfig;
+import com.netease.commonlibrary.net.VolleyUtils.volley.OkRequest;
 
 import java.util.HashMap;
 import java.util.Map;

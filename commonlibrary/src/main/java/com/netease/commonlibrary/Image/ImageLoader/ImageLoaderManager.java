@@ -1,13 +1,13 @@
-package com.netease.commonlibrary.Image.ImageLoader;
+package com.netease.commonlibrary.image.ImageLoader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.view.View;
 
-import com.netease.commonlibrary.CallBack.ImageResultCallback;
-import com.netease.commonlibrary.Constant.LibraryConstant;
-import com.netease.commonlibrary.Image.ImageManagerStack;
+import com.netease.commonlibrary.callback.ImageResultCallback;
+import com.netease.commonlibrary.constant.LibraryConstant;
+import com.netease.commonlibrary.image.ImageManagerStack;
 import com.netease.commonlibrary.R;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiscCache;
