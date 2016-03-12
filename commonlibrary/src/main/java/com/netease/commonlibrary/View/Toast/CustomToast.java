@@ -1,8 +1,10 @@
 package com.netease.commonlibrary.view.toast;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -66,9 +68,10 @@ public class CustomToast {
         try {
             Toast toast = new Toast(context);
             LayoutInflater inflater = LayoutInflater.from(context);
-            TextView textView = (TextView) inflater.inflate(R.layout.custom_toast, null);
+            LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.custom_toast, null);
+            TextView textView= (TextView) layout.findViewById(R.id.cus_toast_text);
             textView.setText(resId);
-            toast.setView(textView);
+            toast.setView(layout);
             toast.setDuration(Toast.LENGTH_SHORT);
             lastToastResId = resId;
             toast.show();
@@ -90,9 +93,10 @@ public class CustomToast {
         lastStamp=currentStamp;
         Toast toast = new Toast(context);
         LayoutInflater inflater = LayoutInflater.from(context);
-        TextView textView = (TextView) inflater.inflate(R.layout.custom_toast, null);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.custom_toast, null);
+        TextView textView= (TextView) layout.findViewById(R.id.cus_toast_text);
         textView.setText(resId);
-        toast.setView(textView);
+        toast.setView(layout);
         toast.setDuration(Toast.LENGTH_LONG);
         lastLongToastResId = resId;
         toast.show();
@@ -111,9 +115,10 @@ public class CustomToast {
         lastStamp=currentStamp;
         Toast toast = new Toast(context);
         LayoutInflater inflater = LayoutInflater.from(context);
-        TextView textView = (TextView) inflater.inflate(R.layout.custom_toast, null);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.custom_toast, null);
+        TextView textView= (TextView) layout.findViewById(R.id.cus_toast_text);
         textView.setText(text);
-        toast.setView(textView);
+        toast.setView(layout);
         toast.setDuration(Toast.LENGTH_LONG);
         if (!TextUtils.isEmpty(text)) {
             lastLongToastString = text;
@@ -128,9 +133,10 @@ public class CustomToast {
         try {
             Toast toast = new Toast(context);
             LayoutInflater inflater = LayoutInflater.from(context);
-            TextView textView = (TextView) inflater.inflate(R.layout.custom_toast, null);
+            LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.custom_toast, null);
+            TextView textView= (TextView) layout.findViewById(R.id.cus_toast_text);
             textView.setText(resId);
-            toast.setView(textView);
+            toast.setView(layout);
             toast.setDuration(Toast.LENGTH_SHORT);
             if (position >= 0) {
                 toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -148,9 +154,10 @@ public class CustomToast {
             return null;
         Toast toast = new Toast(context);
         LayoutInflater inflater = LayoutInflater.from(context);
-        TextView textView = (TextView) inflater.inflate(R.layout.custom_toast, null);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.custom_toast, null);
+        TextView textView= (TextView) layout.findViewById(R.id.cus_toast_text);
         textView.setText(resId);
-        toast.setView(textView);
+        toast.setView(layout);
         toast.setDuration(Toast.LENGTH_LONG);
         toast.show();
         return toast;
@@ -162,9 +169,10 @@ public class CustomToast {
         }
         Toast toast = new Toast(context);
         LayoutInflater inflater = LayoutInflater.from(context);
-        TextView textView = (TextView) inflater.inflate(R.layout.custom_toast2, null);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.custom_toast, null);
+        TextView textView= (TextView) layout.findViewById(R.id.cus_toast_text);
         textView.setText(text);
-        toast.setView(textView);
+        toast.setView(layout);
         toast.setGravity(positin, 0, 0);
         toast.setDuration(Toast.LENGTH_LONG);
         toast.show();

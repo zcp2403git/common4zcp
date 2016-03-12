@@ -79,7 +79,10 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
         mOkHttpClient = new OkHttpClient();
         //cookie enabled
         mOkHttpClient.setCookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER));
-        mOkHttpClient.setConnectTimeout(NetConfig.timeOut, TimeUnit.MILLISECONDS);
+        mOkHttpClient.setConnectTimeout(NetConfig.timeOut, TimeUnit.SECONDS);
+        mOkHttpClient.setWriteTimeout(NetConfig.timeOut, TimeUnit.SECONDS);
+        mOkHttpClient.setReadTimeout(NetConfig.timeOut, TimeUnit.SECONDS);
+
     }
     /**
      * Post方式请求数据
@@ -116,8 +119,10 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
             callback = NetworkResultCallback.DEFAULT_RESULT_CALLBACK;
         final INetworkResultCallback resCallBack =callback;
 
-        if (NetworkStateUtil.checkNetworkType(context)==NetworkStateUtil.TYPE_NET_WORK_DISABLED)
-            sendFailResultCallback(requestCode,new ConnectException(), resCallBack);
+        if (NetworkStateUtil.checkNetworkType(context)==NetworkStateUtil.TYPE_NET_WORK_DISABLED) {
+            sendFailResultCallback(requestCode, new ConnectException(), resCallBack);
+            return;
+        }
 
         OkRequest request = new DefaultResponseRequest(method, url, new Response.Listener<NetworkResponse>() {
             @Override
@@ -211,9 +216,10 @@ public class VolleyNetManager extends BaseNetUtilsManager implements NetworkMana
      * @param callback  结果回调
      */
     public void uploadFiles(final int requestCode, HashMap<String, String> headers, String url, HashMap<String, String> postParams, List<UploadFileInfo> uploadList, final INetworkResultCallback callback){
-        if (NetworkStateUtil.checkNetworkType(context)==NetworkStateUtil.TYPE_NET_WORK_DISABLED)
-            sendFailResultCallback(requestCode,new ConnectException(), callback);
-
+        if (NetworkStateUtil.checkNetworkType(context)==NetworkStateUtil.TYPE_NET_WORK_DISABLED) {
+            sendFailResultCallback(requestCode, new ConnectException(), callback);
+            return;
+        }
         com.squareup.okhttp.Callback okCallback =new Callback() {
             @Override
             public void onFailure(com.squareup.okhttp.Request request, IOException e) {

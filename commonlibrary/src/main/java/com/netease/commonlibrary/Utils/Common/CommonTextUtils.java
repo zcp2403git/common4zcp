@@ -28,7 +28,7 @@ public class CommonTextUtils {
 
     // 判断常见符号
     private static boolean isCommonSymbol(String text) {
-        final String regEx="[`~!@#$%^&*()+=|{}:;\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        final String regEx="[`~!@#$%^&*()+=|{}:;\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？《》%-]";
         final  Pattern c = Pattern.compile(regEx);
         final Matcher mc=c.matcher(text);
         return mc.matches();
@@ -36,7 +36,7 @@ public class CommonTextUtils {
 
     // 判断常见符号
     private static boolean isCommonSymbol(char text) {
-        final String regEx="[`~!@#$%^&*()+=|{}:;\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+        final String regEx="[`~!@#$%^&*()+=|{}:;\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？《》%-]";
         final  Pattern c = Pattern.compile(regEx);
         final Matcher mc=c.matcher(String.valueOf(text));
         return mc.matches();
@@ -68,7 +68,7 @@ public class CommonTextUtils {
                 len += 1;
             }
         }
-        return len/2;
+        return (len+1)/2;
     }
 
 }

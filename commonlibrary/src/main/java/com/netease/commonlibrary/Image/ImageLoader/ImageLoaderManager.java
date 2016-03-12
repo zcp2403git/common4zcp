@@ -71,9 +71,9 @@ public class ImageLoaderManager implements ImageManagerStack{
             options = new DisplayImageOptions.Builder()
                     .bitmapConfig(Config.RGB_565)
                     .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-                    .showImageOnLoading(R.mipmap.default_loading_item)
-                    .showImageForEmptyUri(R.mipmap.default_loading_item)
-                    .showImageOnFail(R.mipmap.default_loading_item)
+                    .showImageOnLoading(R.drawable.default_loading_item)
+                    .showImageForEmptyUri(R.drawable.default_loading_item)
+                    .showImageOnFail(R.drawable.default_loading_item)
                     .cacheInMemory(true)
                     .cacheOnDisk(true)
                     .build();

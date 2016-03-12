@@ -19,7 +19,7 @@ public class NetConfig {
     public NetworkManagerStack managerStack;
     public Gson gsonParse;//Gson对象
     public static int retryCount=0;
-    public static long timeOut=10_000;
+    public static long timeOut=86400;
 
     public NetConfig(NetConfig.Builder builder) {
         this.managerStack = builder.networkManagerStack;
